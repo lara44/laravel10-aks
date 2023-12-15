@@ -1,0 +1,13 @@
+# my-app-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: laravel-aks
+spec:
+  type: NodePort
+  ports:
+  - port: 80 # Puerto externo que expondrás
+    targetPort: 80 # Puerto interno en el contenedor
+    nodePort: 30000
+  selector:
+    role: laravel-aks
